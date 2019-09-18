@@ -41,3 +41,7 @@ Move fast and break things.
 2. Decide on front-end architecture
 3. Get off the ground and deploy to production as fast as possible
 4. Test-driven development
+
+## Legal Details
+
+If we get far enough, make an LLC

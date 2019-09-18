@@ -1,4 +1,4 @@
-# FitJourney Pitch
+# FitJourney
 
 ## Project Description
 

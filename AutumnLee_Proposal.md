@@ -5,6 +5,6 @@ I am a user of FitBod, LoseIt, Apple Health and Activity apps. I have been wanti
 I have been working as a web developer for almost two years. I have had 3 different jobs and an internship as a software engineer. My app for the CS240 has been recognized by some of CS240 TAs for being "one of the most well designed/made app". I am confident that I can make a solid contribution to the team.
 
 # Comments
-- business: I personally think that this app has very good potential to grow beyond the class. It has very competitive feature that does only one thing, gathering all data from different apps. I think if we make this right, it will have a chance to stand in the actual industry. 
-- Legal: Since the app for the project is more like gathering data from different apps. I am not sure how to deal with getting all data from different apps will work legally.
-- Technical: Probably making an API calls or storing data will be the most challenging ones for the project. I do have solid understanding of how protocols and things work. So I may be able to work/help with dealing with data.
+- business: I personally think that this app has very good potential to grow beyond the class. It has very competitive features compare to other apps. I think if we make this right, it will have a chance to stand in the actual industry. 
+- Legal: Since the app for the project is more like gathering data from different API calls (measuring calories intakes, etc.). I am not sure how to deal with storing all data from different features would work.
+- Technical: Probably making an API calls for existing data, like nutritional info, workout suggestion, google maps for the running, etc. or storing data will be the most challenging ones for the project. I do have solid understanding of how protocols and things work. So I may be able to work/help with dealing with data.

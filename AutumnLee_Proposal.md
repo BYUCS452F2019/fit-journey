@@ -6,5 +6,6 @@ I have been working as a web developer for almost two years. I have had 3 differ
 
 # Comments
 - business: I personally think that this app has very good potential to grow beyond the class. It has very competitive features compare to other apps. I think if we make this right, it will have a chance to stand in the actual industry. 
-- Legal: Since the app for the project is more like gathering data from different API calls (measuring calories intakes, etc.). I am not sure how to deal with storing all data from different features would work.
+- Legal: Since the app for the project is more like gathering data from different API calls (measuring calories intakes, etc.), we need to make sure to either use open source or to research on how we want to do it legally.
 - Technical: Probably making an API calls for existing data, like nutritional info, workout suggestion, google maps for the running, etc. or storing data will be the most challenging ones for the project. I do have solid understanding of how protocols and things work. So I may be able to work/help with dealing with data.
+ 

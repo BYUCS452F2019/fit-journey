@@ -45,3 +45,15 @@ Move fast and break things.
 ## Legal Details
 
 If we get far enough, make an LLC
+
+
+# Installation and Usage
+
+## Backend Installation
+
+## Backend Usage
+
+## Frontend Installation
+
+## Frontend Usage
+

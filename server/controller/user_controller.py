@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse
+from flask_restful import Resource, reqparse, request
 
 users = [
     {
@@ -48,7 +48,9 @@ class User(Resource):
         return "User not found", 404
 
     def post(self, userID):
+        request.get_json()
         userID = int(userID)
+        print(request)
         parser = reqparse.RequestParser()
         parser.add_argument("username")
         parser.add_argument("password")
@@ -63,7 +65,7 @@ class User(Resource):
 
         for user in users:
             if(userID == user["user_id"]):
-                return "User with name {} already exists".format(name), 400
+                return "User with id {} already exists".format(userID), 400
 
         user = {
             "user_id": userID,
@@ -82,6 +84,7 @@ class User(Resource):
         return user, 201
 
     def put(self, userID):
+        request.get_json()
         userID = int(userID)
         parser = reqparse.RequestParser()
         parser.add_argument("username")
@@ -106,7 +109,7 @@ class User(Resource):
                 user["goal_weight"] = args["goal_weight"]
                 user["height"] = args["height"]
                 user["gender"] = args["gender"]
-                return "User with name {} already exists".format(name), 201
+                return "User with id {} already exists".format(userID), 201
 
         user = {
             "user_id": 3,

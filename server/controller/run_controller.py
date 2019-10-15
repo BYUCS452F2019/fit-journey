@@ -1,4 +1,4 @@
-from flask_restful import Resource
+from flask_restful import Resource, request
 from datetime import datetime
 
 runs = [
@@ -43,6 +43,7 @@ class Run(Resource):
         return "Run not found", 404
 
     def post(self, runID):
+        request.get_json()
         runID = int(runID)
         parser = reqparse.RequestParser()
         parser.add_argument("user_id")
@@ -72,6 +73,7 @@ class Run(Resource):
         return run, 201
 
     def put(self, runID):
+        request.get_json()
         runID = int(runID)
         parser = reqparse.RequestParser()
         parser.add_argument("user_id")

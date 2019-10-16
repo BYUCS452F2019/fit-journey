@@ -1,0 +1,7 @@
+#Wed Oct 16 12:43:52 MDT 2019
+base.0=/Users/heeyeonlee/Desktop/CS452/fit-journey/client5/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/heeyeonlee/Desktop/CS452/fit-journey/client5/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

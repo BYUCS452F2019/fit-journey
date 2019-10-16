@@ -24,11 +24,30 @@
             android:padding="10dp"
             android:textColor="#218175"/>
 
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="80dp"
-            android:src="@drawable/ic_start"/>
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/button_img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_start"/>
+
+            <TextView
+                android:id="@+id/button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Start"
+                android:textSize="30dp"
+                android:fontFamily="@font/noto_serif_font"/>
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 

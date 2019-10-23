@@ -58,7 +58,15 @@ public class PlaceholderFragment extends Fragment {
 //    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v= inflater.inflate(R.layout.fragment_main, container, false);
-        return v;
+        int index = getArguments().getInt(ARG_SECTION_NUMBER);
+
+        if (index == 1) {
+            View v = inflater.inflate(R.layout.fragment_main, container, false);
+            return v;
+        }
+        else {
+            View v = inflater.inflate(R.layout.activity_track, container, false);
+            return v;
+        }
     }
 }

@@ -33,12 +33,12 @@
         android:paddingRight="50dp"
         android:clickable="true">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/person_icon"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:src="@drawable/ic_person"-->
-<!--            android:padding="10dp"/>-->
+        <ImageView
+            android:id="@+id/timer_button"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_start"
+            android:padding="10dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,19 +47,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/person_Name"
+                android:id="@+id/timer_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
-                android:text="Click on a marker"
+                android:text="00:00:00"
                 android:textColor="#016367"/>
 
             <TextView
-                android:id="@+id/event_info"
+                android:id="@+id/timer_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
-                android:text="to see event details"
+                android:text="Click the start button"
                 android:textColor="#016367"/>
 
         </LinearLayout>

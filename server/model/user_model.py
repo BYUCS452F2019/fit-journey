@@ -70,19 +70,23 @@ def get_user(user_id):
         cur = conn.cursor()
         cur.execute(sql, (user_id,))
         row = cur.fetchone()
+        
+        if row = None:
+            user = None
 
-        user = {
-            "user_id": user_id,
-            "username": row[1],
-            "password": row[2],
-            "first_name": row[3],
-            "last_name": row[4],
-            "age": row[5],
-            "current_weight": row[6],
-            "goal_weight": row[7],
-            "height": row[8],
-            "gender": row[9]
-        }
+        else:
+            user = {
+                "user_id": user_id,
+                "username": row[1],
+                "password": row[2],
+                "first_name": row[3],
+                "last_name": row[4],
+                "age": row[5],
+                "current_weight": row[6],
+                "goal_weight": row[7],
+                "height": row[8],
+                "gender": row[9]
+            }
 
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:

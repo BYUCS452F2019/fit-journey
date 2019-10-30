@@ -1,4 +1,8 @@
+import sys
 from flask_restful import Resource, reqparse, request
+
+sys.path.insert(1, "../model")
+import .model.user_model
 
 users = [
     {
@@ -42,10 +46,16 @@ users = [
 class User(Resource):
     def get(self, userID):
         userID = int(userID)
-        for user in users:
-            if(userID == user["user_id"]):
-                return user, 200
-        return "User not found", 404
+        user = user_model.get_user(user_id)
+        if user == None:
+            return "User not found", 404
+        else:
+            return user, 200
+
+        #for user in users:
+        #    if(userID == user["user_id"]):
+        #        return user, 200
+        #return "User not found", 404
 
     def post(self, userID):
         request.get_json()
@@ -63,9 +73,10 @@ class User(Resource):
         parser.add_argument("gender")
         args = parser.parse_args()
 
-        for user in users:
-            if(userID == user["user_id"]):
-                return "User with id {} already exists".format(userID), 400
+        #for user in users:
+        #    if(userID == user["user_id"]):
+        if(user_model.get_user(userID) != None):
+            return "User with id {} already exists".format(userID), 400
 
         user = {
             "user_id": userID,
@@ -80,7 +91,8 @@ class User(Resource):
             "gender": args["gender"]
         }
         
-        users.append(user)
+        #users.append(user)
+        user_model.insert_user(user)
         return user, 201
 
     def put(self, userID):
@@ -98,21 +110,21 @@ class User(Resource):
         parser.add_argument("gender")
         args = parser.parse_args()
 
-        for user in users:
-            if(userID == user["user_id"]):
-                user["username"] = args["username"]
-                user["password"] = args["password"]
-                user["first_name"] = args["first_name"]
-                user["last_name"] = args["last_name"]
-                user["age"] = args["age"]
-                user["current_weight"] = args["current_weight"]
-                user["goal_weight"] = args["goal_weight"]
-                user["height"] = args["height"]
-                user["gender"] = args["gender"]
-                return "User with id {} already exists".format(userID), 201
+        #for user in users:
+        #    if(userID == user["user_id"]):
+        #        user["username"] = args["username"]
+        #        user["password"] = args["password"]
+        #        user["first_name"] = args["first_name"]
+        #        user["last_name"] = args["last_name"]
+        #        user["age"] = args["age"]
+        #        user["current_weight"] = args["current_weight"]
+        #        user["goal_weight"] = args["goal_weight"]
+        #        user["height"] = args["height"]
+        #        user["gender"] = args["gender"]
+        #        return "User with id {} already exists".format(userID), 201
 
         user = {
-            "user_id": 3,
+            "user_id": userID,
             "username": args["username"],
             "password": args["password"],
             "first_name": args["first_name"],
@@ -123,11 +135,21 @@ class User(Resource):
             "height": args["height"],
             "gender": args["gender"]
         }
-        users.append(user)
-        return user, 201
+        if(user_model.get_user(userID) != None):
+            user_model.put_user(user)
+            return "User with id {} already exists".format(userID), 201
+        
+        else:
+            user_model.insert_user(user)
+            return user, 201
+
+        #users.append(user)
+        #user_model.put_user(user)
+        #return user, 201
 
     def delete(self, userID):
         userID = int(userID)
-        global users
-        users = [user for user in users if user["user_id"] != userID]
+        user_model.delete_user(userID)
+        #global users
+        #users = [user for user in users if user["user_id"] != userID]
         return "{} is deleted.".format(userID), 200

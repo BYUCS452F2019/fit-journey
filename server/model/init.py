@@ -43,44 +43,48 @@ def create_tables():
         """
         CREATE TABLE users (
             user_id SERIAL PRIMARY KEY,
+            username VARCHAR(15) NOT NULL,
+            password VARCHAR(25) NOT NULL,
+            first_name VARCHAR(15) NOT NULL,
+            last_name VARCHAR(15) NOT NULL,
+            age INTEGER NOT NULL,
+            current_weight REAL NOT NULL,
+            goal_weight REAL NOT NULL,
+            height REAL NOT NULL,
+            gender VARCHAR(1)
         )
         """,
         """ CREATE TABLE runs (
                 run_id SERIAL PRIMARY KEY,
-                part_name VARCHAR(255) NOT NULL
+                user_id INTEGER NOT NULL,
+                distance REAL NOT NULL,
+                start_time VARCHAR(128),
+                end_time VARCHAR(128),
+                pace REAL NOT NULL,
+                calories_burned INTEGER NOT NULL
                 )
         """,
         """
-        CREATE TABLE part days (
+        CREATE TABLE days (
                 day_id INTEGER PRIMARY KEY,
-                file_extension VARCHAR(5) NOT NULL,
-                drawing_data BYTEA NOT NULL,
-                FOREIGN KEY (part_id)
-                REFERENCES parts (part_id)
-                ON UPDATE CASCADE ON DELETE CASCADE
+                date VARCHAR(128) NOT NULL,
+                user_id INTEGER NOT NULL
         )
         """,
         """
         CREATE TABLE meals (
-                vendor_id INTEGER NOT NULL,
-                part_id INTEGER NOT NULL,
-                PRIMARY KEY (vendor_id , part_id),
-                FOREIGN KEY (vendor_id)
-                    REFERENCES vendors (vendor_id)
-                    ON UPDATE CASCADE ON DELETE CASCADE,
-                FOREIGN KEY (part_id)
-                    REFERENCES parts (part_id)
-                    ON UPDATE CASCADE ON DELETE CASCADE
+                meal_id INTEGER NOT NULL,
+                day_id INTEGER NOT NULL,
+                time VARCHAR(128) NOT NULL,
+                calories INTEGER NOT NULL
         )
         """,
         """
-        CREATE TABLE part days (
-                day_id INTEGER PRIMARY KEY,
-                file_extension VARCHAR(5) NOT NULL,
-                drawing_data BYTEA NOT NULL,
-                FOREIGN KEY (part_id)
-                REFERENCES parts (part_id)
-                ON UPDATE CASCADE ON DELETE CASCADE
+        CREATE TABLE food_items (
+                food_item_id INTEGER PRIMARY KEY,
+                meal_id INTEGER NOT NULL,
+                food_name VARCHAR(25) NOT NULL,
+                portion_size INTEGER NOT NULL
         )
         """)
     conn = None
@@ -105,3 +109,4 @@ def create_tables():
 
 if __name__ == '__main__':
     connect()
+    create_tables()

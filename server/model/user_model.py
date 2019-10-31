@@ -28,19 +28,14 @@ def insert_user(user):
 
 def put_user(user):
     sql = """ UPDATE users
-              SET username = %s
-              SET password = %s
-              SET first_name = %s
-              SET last_name = %s
-              SET age = %s
-              SET current_weight = %s
-              SET goal_weight = %s
-              SET height = %s
-              SET gender = %s
+              SET username = %s, password = %s, first_name = %s, last_name =
+              %s, age = %s, current_weight = %s, goal_weight = %s, height = %s,
+              gender = %s
               WHERE user_id = %s"""
 
     conn = None
     updated_rows = 0
+    print(user)
     try:
         params = config()
         conn = psycopg2.connect(**params)
@@ -61,9 +56,10 @@ def put_user(user):
     return updated_rows
 
 def get_user(user_id):
-    sql = """ SELECT * FROM users WHERE user_id = $s"""
+    sql = """ SELECT * FROM users WHERE user_id = %s"""
 
     conn = None
+    user = None
     try:
         params = config()
         conn = psycopg2.connect(**params)
@@ -71,7 +67,7 @@ def get_user(user_id):
         cur.execute(sql, (user_id,))
         row = cur.fetchone()
         
-        if row = None:
+        if row == None:
             user = None
 
         else:

@@ -1,0 +1,306 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginFragmentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Client.LoginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        //user name
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_user_name"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+        </LinearLayout>
+
+        //password
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_password"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+        </LinearLayout>
+
+        //first name
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_first_name"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+        </LinearLayout>
+
+        //last name
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_last_name"
+                android:textAlignment="textEnd" />
+
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        //age
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_age"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        //height
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_height"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/height_foot"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="35dp"
+                android:text="ft"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/height_inch"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="35dp"
+                android:text="in"
+                android:textAlignment="textEnd" />
+
+        </LinearLayout>
+
+//current weight
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_current_weight"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/current_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        //goal weight
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_goal_weight"
+                android:textAlignment="textEnd" />
+
+            <EditText
+                android:id="@+id/goal_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="11"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        //gender
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:text="@string/login_gender"
+                android:textAlignment="textEnd" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/male"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ems="6"
+                    android:text="@string/login_male" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:ems="6"
+                    android:text="@string/login_female" />
+            </RadioGroup>
+        </LinearLayout>
+
+        //sign in and register
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/signIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:ems="6"
+                android:text="@string/login_sign_in" />
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:ems="6"
+                android:text="@string/login_register" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

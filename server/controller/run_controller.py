@@ -1,6 +1,8 @@
 from flask_restful import Resource, request
 from datetime import datetime
 
+from run_model import *
+
 runs = [
     {
         "run_id": 1,
@@ -37,10 +39,15 @@ runs = [
 class Run(Resource):
     def get(self, runID):
         runID = int(runID)
-        for run in runs:
-            if(runID == run["run_id"]):
-                return run, 200
-        return "Run not found", 404
+        run = get_run(runID)
+        if run == None:
+            return "Run not found", 404
+        else:
+            return run, 200
+
+        #for run in runs:
+        #    if(runID == run["run_id"]):
+        #        return run, 200
 
     def post(self, runID):
         request.get_json()
@@ -55,9 +62,12 @@ class Run(Resource):
         parser.add_argument("route")
         args = parser.parse_args()
 
-        for run in runs:
-            if(runID == run["run_id"]):
-                return "Run with id {} already exists".format(runID), 400
+        #for run in runs:
+        #    if(runID == run["run_id"]):
+        #        return "Run with id {} already exists".format(runID), 400
+
+        if(get_run(runID) != None):
+            return "Run with id {} already exists".format(runID), 400
         
         run = {
             "run_id": runID,
@@ -69,7 +79,8 @@ class Run(Resource):
             "calories_burned": args["calories_burned"],
             "route": args["route"]
         }
-        runs.append(run)
+        #runs.append(run)
+        insert_run(run)
         return run, 201
 
     def put(self, runID):
@@ -85,16 +96,16 @@ class Run(Resource):
         parser.add_argument("route")
         args = parser.parse_args()
 
-        for run in runs:
-            if(runID == run["run_id"]):
-                run["user_id"] = args["user_id"],
-                run["distance"] = args["distance"],
-                run["start_time"] = args["start_time"],
-                run["end_time"] = args["end_time"],
-                run["pace"] = args["pace"],
-                run["calories_burned"] = args["calories_burned"],
-                run["route"] = args["route"]
-                return "Run with id {} updated".format(runID), 201
+        #for run in runs:
+        #    if(runID == run["run_id"]):
+        #        run["user_id"] = args["user_id"],
+        #        run["distance"] = args["distance"],
+        #        run["start_time"] = args["start_time"],
+        #        run["end_time"] = args["end_time"],
+        #        run["pace"] = args["pace"],
+        #        run["calories_burned"] = args["calories_burned"],
+        #        run["route"] = args["route"]
+        #        return "Run with id {} updated".format(runID), 201
         
         run = {
             "run_id": runID,
@@ -106,11 +117,17 @@ class Run(Resource):
             "calories_burned": args["calories_burned"],
             "route": args["route"]
         }
-        runs.append(run)
-        return run, 201
+
+        if(get_run(runID) != None):
+            put_run(run)
+            return "Run with id {} updated".format(runID), 201
+        else:
+            insert_run(run)
+            return run, 201
 
     def delete(self, runID):
         runID = int(runID)
-        global runs
-        runs = [run for run in runs if run["run_id"] != runID]
-        return "{} is deleted.".format(runID), 200
+        row_count = delete_run(runID)
+        #global runs
+        #runs = [run for run in runs if run["run_id"] != runID]
+        return "{} rows deleted.".format(row_count), 200

@@ -66,14 +66,14 @@ def create_tables():
         """,
         """
         CREATE TABLE days (
-                day_id INTEGER PRIMARY KEY,
+                day_id SERIAL PRIMARY KEY,
                 date VARCHAR(128) NOT NULL,
                 user_id INTEGER NOT NULL
         )
         """,
         """
         CREATE TABLE meals (
-                meal_id INTEGER NOT NULL,
+                meal_id SERIAL NOT NULL,
                 day_id INTEGER NOT NULL,
                 time VARCHAR(128) NOT NULL,
                 calories INTEGER NOT NULL
@@ -81,7 +81,7 @@ def create_tables():
         """,
         """
         CREATE TABLE food_items (
-                food_item_id INTEGER PRIMARY KEY,
+                food_item_id SERIAL PRIMARY KEY,
                 meal_id INTEGER NOT NULL,
                 food_name VARCHAR(25) NOT NULL,
                 portion_size INTEGER NOT NULL

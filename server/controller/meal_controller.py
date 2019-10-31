@@ -1,6 +1,8 @@
 from flask_restful import Resource, reqparse, request
 from datetime import datetime
 
+from meal_model import *
+
 meals = [
     {
         "meal_id": 1,
@@ -25,10 +27,11 @@ meals = [
 class Meal(Resource):
     def get(self, mealID):
         mealID = int(mealID)
-        for meal in meals:
-            if(mealID == meal["meal_id"]):
-                return meal, 200
-        return "Meal not found", 404
+        meal = get_meal(mealID)
+        if meal == None:
+            return "Meal not found", 404
+        else:
+            return meal, 200
 
     def post(self, mealID):
         request.get_json()

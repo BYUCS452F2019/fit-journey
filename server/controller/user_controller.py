@@ -51,11 +51,6 @@ class User(Resource):
         else:
             return user, 200
 
-        #for user in users:
-        #    if(userID == user["user_id"]):
-        #        return user, 200
-        #return "User not found", 404
-
     def post(self, userID):
         request.get_json()
         userID = int(userID)
@@ -122,9 +117,8 @@ class User(Resource):
             "gender": args["gender"]
         }
         if(get_user(userID) != None):
-            print(user)
             put_user(user)
-            return "User with id {} already exists".format(userID), 201
+            return "User with id {} updated".format(userID), 201
         
         else:
             insert_user(user)

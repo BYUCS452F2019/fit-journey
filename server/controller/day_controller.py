@@ -1,6 +1,8 @@
 from flask_restful import Resource, reqparse, request
 from datetime import datetime
 
+from day_model import *
+
 days = [
     {
         "day_id": 1,
@@ -40,9 +42,8 @@ class Day(Resource):
         parser.add_argument("total_calories")
         args = parser.parse_args()
 
-        for day in days:
-            if(dayID == day["day_id"]):
-                return "Day with id {} already exists".format(dayID), 400
+        if (get_day(dayID) != None):
+            return "Day with id {} already exists".format(dayID), 400
 
         day = {
             "day_id": dayID,
@@ -51,7 +52,8 @@ class Day(Resource):
             "total_calories": args["total_calories"]
         }
         
-        days.append(day)
+        #days.append(day)
+        insert_day(day)
         return day, 201
 
     def put(self, dayID):
@@ -63,24 +65,20 @@ class Day(Resource):
         parser.add_argument("total_calories")
         args = parser.parse_args()
 
-        for day in days:
-            if(dayID == day["day_id"]):
-                day["user_id"] = args["user_id"]
-                day["date"] = args["date"]
-                day["total_calories"] = args["total_calories"]
-                return "Day with id {} already exists".format(dayID), 201
-
         day = {
             "day_id": dayID,
             "user_id": args["user_id"],
             "date": args["date"],
             "total_calories": args["total_calories"]
         }
-        days.append(day)
-        return day, 201
+        if (get_day(dayID) != None):
+            return "Day with id {} updated".format(dayID), 201
+
+        else:
+            insert_day(day)
+            return day, 201
 
     def delete(self, dayID):
         dayID = int(dayID)
-        global days
-        days = [day for day in days if day["day_id"] != dayID]
-        return "{} is deleted.".format(dayID), 200
+        rows = delete_day(dayID)
+        return "{} rows deleted.".format(rows), 200

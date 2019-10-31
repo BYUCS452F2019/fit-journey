@@ -43,9 +43,10 @@ class Meal(Resource):
         parser.add_argument("calories")
         args = parser.parse_args()
 
-        for meal in meals:
-            if(mealID == meal["meal_id"]):
-                return "Food Item with id {} already exists".format(mealID), 400
+        #for meal in meals:
+        #    if(mealID == meal["meal_id"]):
+        if(get_meal(mealID) != None):
+                return "Meal with id {} already exists".format(mealID), 400
 
         meal = {
             "meal_id": mealID,
@@ -54,7 +55,8 @@ class Meal(Resource):
             "calories": args["calories"]
         }
         
-        meals.append(meal)
+        #meals.append(meal)
+        insert_meal(meal)
         return meal, 201
 
     def put(self, mealID):
@@ -66,24 +68,23 @@ class Meal(Resource):
         parser.add_argument("calories")
         args = parser.parse_args()
 
-        for meal in meals:
-            if(mealID == meal["meal_id"]):
-                meal["day_id"] = args["day_id"]
-                meal["time"] = args["time"]
-                meal["calories"] = args["calories"]
-                return "Meal with id {} already exists".format(mealID), 201
-
         meal = {
             "meal_id": 3,
             "day_id": args["day_id"],
             "time": args["time"],
             "calories": args["calories"]
         }
-        meals.append(meal)
-        return meal, 201
+
+        if (get_meal(mealID) != None):
+            put_meal(meal)
+            return "Meal with id {} updated".format(mealID), 201
+        else:
+            insert_meal(meal)
+            return meal, 201
 
     def delete(self, mealID):
         mealID = int(mealID)
-        global meals
-        meals = [meal for meal in meals if meal["meal_id"] != mealID]
-        return "{} is deleted.".format(mealID), 200
+        rows = delete_meal(mealID)
+        #global meals
+        #meals = [meal for meal in meals if meal["meal_id"] != mealID]
+        return "{} rows deleted.".format(rows), 200

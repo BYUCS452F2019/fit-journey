@@ -67,8 +67,6 @@ class User(Resource):
         parser.add_argument("gender")
         args = parser.parse_args()
 
-        #for user in users:
-        #    if(userID == user["user_id"]):
         if(get_user(userID) != None):
             return "User with id {} already exists".format(userID), 400
 

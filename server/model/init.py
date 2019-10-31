@@ -42,7 +42,7 @@ def create_tables():
         """,
         """
         CREATE TABLE users (
-            user_id SERIAL PRIMARY KEY,
+            user_id INTEGER PRIMARY KEY,
             username VARCHAR(15) NOT NULL,
             password VARCHAR(25) NOT NULL,
             first_name VARCHAR(15) NOT NULL,
@@ -55,7 +55,7 @@ def create_tables():
         )
         """,
         """ CREATE TABLE runs (
-                run_id SERIAL PRIMARY KEY,
+                run_id INTEGER PRIMARY KEY,
                 user_id INTEGER NOT NULL,
                 distance REAL NOT NULL,
                 start_time VARCHAR(128),
@@ -66,14 +66,14 @@ def create_tables():
         """,
         """
         CREATE TABLE days (
-                day_id SERIAL PRIMARY KEY,
+                day_id INTEGER PRIMARY KEY,
                 date VARCHAR(128) NOT NULL,
                 user_id INTEGER NOT NULL
         )
         """,
         """
         CREATE TABLE meals (
-                meal_id SERIAL NOT NULL,
+                meal_id INTEGER NOT NULL,
                 day_id INTEGER NOT NULL,
                 time VARCHAR(128) NOT NULL,
                 calories INTEGER NOT NULL
@@ -81,7 +81,7 @@ def create_tables():
         """,
         """
         CREATE TABLE food_items (
-                food_item_id SERIAL PRIMARY KEY,
+                food_item_id INTEGER PRIMARY KEY,
                 meal_id INTEGER NOT NULL,
                 food_name VARCHAR(25) NOT NULL,
                 portion_size INTEGER NOT NULL

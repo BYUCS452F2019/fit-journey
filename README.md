@@ -51,7 +51,18 @@ If we get far enough, make an LLC
 
 ## Backend Installation
 
+* Clone the repo
+* Ensure you have all needed python dependencies (flask_restful, psycopg2, sys)
+* Install PostgreSQL
+* Create a fitjourney database and user with correct permissions
+* Give it password fit
+* For more db information see `server/model/database.ini`
+
 ## Backend Usage
+
+* Run `python server.py`
+* Connect to the proper host/port
+* Make API calls
 
 ## Frontend Installation
 

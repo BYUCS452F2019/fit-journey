@@ -13,6 +13,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.example.client2.HomeActivity;
 import com.example.client2.MainActivity;
 import com.example.client2.R;
 import com.example.client2.TimerActivity;
@@ -267,7 +269,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //switch to timer
-                Intent intent = new Intent(getActivity(), TimerActivity.class);
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
 
 //                Intent intent = new Intent();
@@ -281,7 +283,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //switch to timer
-                Intent intent = new Intent(getActivity(), TimerActivity.class);
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
 //                RegisterAsyncTask registerTask = new RegisterAsyncTask();
 //                registerTask.execute();

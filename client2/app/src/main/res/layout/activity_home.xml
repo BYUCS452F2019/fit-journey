@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:ems="6"
+            android:fontFamily="@font/noto_serif_font"
             android:text="Timer" />
 
         <Button
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:ems="6"
+            android:fontFamily="@font/noto_serif_font"
             android:text="Tracker" />
 
     </LinearLayout>

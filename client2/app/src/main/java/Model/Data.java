@@ -8,6 +8,7 @@ public class Data {
     private String age;
     private String height;
     private String weight;
+    private String authToken;
 
 
     // Getters
@@ -47,6 +48,12 @@ public class Data {
         }
         return weight;
     }
+    public String getAuthToken() {
+        if (authToken == null) {
+            return "32324s";
+        }
+        return authToken;
+    }
 
     // Setters
     public static void setData(Data data) { Data.data = data; }
@@ -55,4 +62,5 @@ public class Data {
     public void setAge(String age) { age = this.age; }
     public void setHeight(String height) { height = this.height; }
     public void setWeight(String weight) { weight = this.weight; }
+    public void setAuthToken(String authToken) { authToken = this.authToken; }
 }

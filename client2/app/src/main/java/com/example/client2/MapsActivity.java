@@ -3,6 +3,11 @@ package com.example.client2;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,6 +19,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Chronometer chronometer;
+    private boolean isStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +30,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        chronometer = findViewById(R.id.chronometer);
+
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometerChanged) {
+                chronometer = chronometerChanged;
+            }
+        });
     }
 
+    public void startChronometer(View view){
+        if(isStart){
+            chronometer.stop();
+            isStart = false;
+            ((Button)view).setText("Start");
+
+        }else{
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            chronometer.start();
+            isStart = true;
+            ((Button)view).setText("Stop");
+        }
+    }
 
     /**
      * Manipulates the map once available.

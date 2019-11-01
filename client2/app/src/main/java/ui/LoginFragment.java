@@ -19,6 +19,7 @@ import com.example.client2.MainActivity;
 import com.example.client2.R;
 import com.example.client2.TimerActivity;
 
+import Model.Data;
 import Model.LoginModel;
 import Request.UserLoginRequest;
 import Request.UserRegisterRequest;
@@ -89,6 +90,7 @@ public class LoginFragment extends Fragment {
         femaleText = (RadioButton) v.findViewById(R.id.female);
         signinText = (Button) v.findViewById(R.id.signIn);
         registerText = (Button) v.findViewById(R.id.register);
+        Data data = Data.getData();
 
         registerText.setEnabled(false);
         signinText.setEnabled(false);
@@ -109,9 +111,9 @@ public class LoginFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 checkRegisterButton();
                 checkSigninButton();
-
             }
         });
+        data.setUsername("userName");
         passwordText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -4,6 +4,7 @@ from flask import Flask
 from flask_restful import Api, Resource, reqparse
 
 sys.path.insert(1, "./controller")
+sys.path.insert(1, "./model")
 
 import user_controller
 import run_controller

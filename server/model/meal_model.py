@@ -5,15 +5,15 @@ from config import config
 
 def insert_meal(meal):
     """ insert a new meal into the meals table """
-    sql = """INSERT INTO meals(day_id, time, calories) 
-             VALUES(%s, %s, %s); """
+    sql = """INSERT INTO meals(meal_id, day_id, time, calories) 
+             VALUES(%s, %s, %s, %s); """
 
     conn = None 
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (meal["day_id"], meal["time"], meal["calories"]))
+        cur.execute(sql, (meal["meal_id"], meal["day_id"], meal["time"], meal["calories"]))
         conn.commit()
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:

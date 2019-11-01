@@ -5,15 +5,15 @@ from config import config
 
 def insert_day(day):
     """ insert a new day into the days table """
-    sql = """INSERT INTO days(user_id, date, total_calories) 
-             VALUES(%s, %s, %s); """
+    sql = """INSERT INTO days(day_id, user_id, date, total_calories) 
+             VALUES(%s, %s, %s, %s); """
 
     conn = None 
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (day["user_id"], day["date"], day["total_calories"]))
+        cur.execute(sql, (day["day_id"], day["user_id"], day["date"], day["total_calories"]))
         conn.commit()
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:

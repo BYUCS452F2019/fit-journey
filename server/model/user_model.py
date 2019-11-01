@@ -5,16 +5,16 @@ from config import config
 
 def insert_user(user):
     """ insert a new user into the users table """
-    sql = """INSERT INTO users(username, password, first_name,
+    sql = """INSERT INTO users(user_id, username, password, first_name,
              last_name, age, current_weight, goal_weight, height, gender)
-             VALUES(%s, %s, %s, %s, %s, %s, %s, %s , %s); """
+             VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s , %s); """
 
     conn = None 
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (user["username"], user["password"], user["first_name"],
+        cur.execute(sql, (user["user_id"], user["username"], user["password"], user["first_name"],
                           user["last_name"], user["age"],
                           user["current_weight"], user["goal_weight"],
                           user["height"], user["gender"]))

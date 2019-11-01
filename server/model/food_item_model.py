@@ -6,15 +6,16 @@ from config import config
 
 def insert_food_item(food_item):
     """ insert a new food_item into the food_items table """
-    sql = """INSERT INTO food_items(meal_id, food_name, portion_size) 
-             VALUES(%s, %s, %s); """
+    sql = """INSERT INTO food_items(food_item_id, meal_id, food_name, portion_size) 
+             VALUES(%s, %s, %s, %s); """
 
     conn = None 
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (food_item["meal_id"], food_item["food_name"], food_item["portion_size"]))
+        cur.execute(sql, (food_item["food_item_id"], food_item["meal_id"], 
+                          food_item["food_name"], food_item["portion_size"]))
         conn.commit()
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:

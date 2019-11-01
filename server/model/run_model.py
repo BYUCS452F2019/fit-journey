@@ -5,16 +5,16 @@ from config import config
 
 def insert_run(run):
     """ insert a new run into the runs table """
-    sql = """INSERT INTO runs(user_id, distance, start_time, end_time,
+    sql = """INSERT INTO runs(run_id, user_id, distance, start_time, end_time,
              pace, calories_burned, route) 
-             VALUES(%s, %s, %s, %s, %s, %s, %s); """
+             VALUES(%s, %s, %s, %s, %s, %s, %s, %s); """
 
     conn = None 
     try:
         params = config()
         conn = psycopg2.connect(**params)
         cur = conn.cursor()
-        cur.execute(sql, (run["user_id"], run["distance"], run["start_time"],
+        cur.execute(sql, (run["run_id"], run["user_id"], run["distance"], run["start_time"],
                           run["end_time"], run["pace"],
                           run["calories_burned"], run["route"]))
         conn.commit()

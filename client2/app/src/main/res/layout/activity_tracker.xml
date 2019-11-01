@@ -15,28 +15,33 @@
         android:columnCount="2">
 
         <ImageView
-            android:id="@+id/event_icon"
+            android:id="@+id/tracker_icon"
             android:layout_height="match_parent"
             android:src="@drawable/ic_map"/>
 
         <LinearLayout
-            android:id="@+id/event_clicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/life_event_info"
+                android:id="@+id/tracker_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_serif_font"
-                android:text="Event type: place (year)" />
+                android:text="Oct 23, 2019" />
             <TextView
-                android:id="@+id/life_event_person_name"
+                android:id="@+id/tracker_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_serif_font"
-                android:text="Person name"/>
+                android:text="01:24:34"/>
+            <TextView
+                android:id="@+id/tracker_calories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_serif_font"
+                android:text="422 Calories"/>
         </LinearLayout>
 
 

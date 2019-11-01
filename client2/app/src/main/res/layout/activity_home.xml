@@ -17,6 +17,36 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/home_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:fontFamily="@font/noto_serif_font"
+            android:text="John Doe"/>
+        <TextView
+            android:id="@+id/home_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:fontFamily="@font/noto_serif_font"
+            android:text="23"/>
+        <TextView
+            android:id="@+id/home_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:fontFamily="@font/noto_serif_font"
+            android:text="138lbs"/>
+        <TextView
+            android:id="@+id/home_heigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:fontFamily="@font/noto_serif_font"
+            android:text="5ft 7in"/>
+
+
         <Button
             android:id="@+id/home_timer"
             android:layout_width="wrap_content"

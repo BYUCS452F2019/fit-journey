@@ -60,6 +60,7 @@ If we get far enough, make an LLC
 
 ## Backend Usage
 
+* Run `python /model/init.py`
 * Run `python server.py`
 * Connect to the proper host/port
 * Make API calls

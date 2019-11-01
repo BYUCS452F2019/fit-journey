@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:width="110dp"
                 android:text="@string/login_user_name"
+                android:fontFamily="@font/noto_serif_font"
                 android:textAlignment="textEnd" />
 
             <EditText
@@ -32,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:ems="11"
+                android:fontFamily="@font/noto_serif_font"
                 android:inputType="text" />
         </LinearLayout>
 
@@ -49,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:width="110dp"
                 android:text="@string/login_password"
+                android:fontFamily="@font/noto_serif_font"
                 android:textAlignment="textEnd" />
 
             <EditText
@@ -56,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="11"
                 android:inputType="text" />
         </LinearLayout>
@@ -74,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:width="110dp"
                 android:text="@string/login_first_name"
+                android:fontFamily="@font/noto_serif_font"
                 android:textAlignment="textEnd" />
 
             <EditText
@@ -81,6 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="11"
                 android:inputType="text" />
         </LinearLayout>
@@ -98,6 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="110dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="@string/login_last_name"
                 android:textAlignment="textEnd" />
 
@@ -107,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="11"
                 android:inputType="text" />
 
@@ -125,6 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="110dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="@string/login_age"
                 android:textAlignment="textEnd" />
 
@@ -133,6 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="11"
                 android:inputType="text" />
 
@@ -150,6 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="110dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="@string/login_height"
                 android:textAlignment="textEnd" />
 
@@ -158,6 +169,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="11"
                 android:inputType="text" />
 
@@ -166,6 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="35dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="ft"
                 android:textAlignment="textEnd" />
 
@@ -173,12 +186,14 @@
                 android:id="@+id/height_inch"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_serif_font"
                 android:layout_gravity="start"
                 android:ems="11"
                 android:inputType="text" />
             <TextView
                 style="?android:listSeparatorTextViewStyle"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/noto_serif_font"
                 android:layout_height="wrap_content"
                 android:width="35dp"
                 android:text="in"
@@ -198,6 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="110dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="@string/login_current_weight"
                 android:textAlignment="textEnd" />
 
@@ -205,6 +221,7 @@
                 android:id="@+id/current_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_serif_font"
                 android:layout_gravity="start"
                 android:ems="11"
                 android:inputType="text" />
@@ -224,6 +241,7 @@
                 android:layout_height="wrap_content"
                 android:width="110dp"
                 android:text="@string/login_goal_weight"
+                android:fontFamily="@font/noto_serif_font"
                 android:textAlignment="textEnd" />
 
             <EditText
@@ -231,6 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="11"
                 android:inputType="text" />
 
@@ -248,6 +267,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="110dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="@string/login_gender"
                 android:textAlignment="textEnd" />
 
@@ -261,6 +281,7 @@
                     android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_serif_font"
                     android:layout_gravity="start"
                     android:ems="6"
                     android:text="@string/login_male" />
@@ -270,6 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:fontFamily="@font/noto_serif_font"
                     android:ems="6"
                     android:text="@string/login_female" />
             </RadioGroup>
@@ -290,6 +312,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:ems="6"
+                android:fontFamily="@font/noto_serif_font"
                 android:text="@string/login_sign_in" />
 
             <Button
@@ -297,6 +320,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:fontFamily="@font/noto_serif_font"
                 android:ems="6"
                 android:text="@string/login_register" />
 

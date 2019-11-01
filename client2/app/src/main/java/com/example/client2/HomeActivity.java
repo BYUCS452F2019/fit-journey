@@ -22,5 +22,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button trackerButton = findViewById(R.id.home_tracker);
+        trackerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TrackerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

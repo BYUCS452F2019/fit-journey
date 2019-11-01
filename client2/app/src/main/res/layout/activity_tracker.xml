@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".TrackerActivity"
+    android:padding="8dp">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="1"
+        android:columnCount="2">
+
+        <ImageView
+            android:id="@+id/event_icon"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_map"/>
+
+        <LinearLayout
+            android:id="@+id/event_clicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/life_event_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_serif_font"
+                android:text="Event type: place (year)" />
+            <TextView
+                android:id="@+id/life_event_person_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_serif_font"
+                android:text="Person name"/>
+        </LinearLayout>
+
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

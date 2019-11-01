@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:text="00:00:00"
+                android:fontFamily="@font/noto_serif_font"
                 android:textColor="#016367"/>
 
             <TextView
@@ -60,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:text="Click the start button"
+                android:fontFamily="@font/noto_serif_font"
                 android:textColor="#016367"/>
 
         </LinearLayout>

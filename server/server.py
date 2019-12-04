@@ -4,7 +4,7 @@ from flask import Flask
 from flask_restful import Api, Resource, reqparse
 
 sys.path.insert(1, "./controller")
-sys.path.insert(1, "./model")
+sys.path.insert(1, "./relational")
 
 import user_controller
 import run_controller
@@ -21,4 +21,4 @@ api.add_resource(day_controller.Day, "/day/<string:dayID>")
 api.add_resource(meal_controller.Meal, "/meal/<string:mealID>")
 api.add_resource(food_item_controller.Food_Item, "/food_item/<string:food_itemID>")
 
-app.run(debug=True)
+app.run(debug=True,host='0.0.0.0')

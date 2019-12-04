@@ -1,100 +1,38 @@
 #!/usr/bin/python
 
-import psycopg2
-from config import config
+from pymongo import MongoClient
 
 def insert_day(day):
     """ insert a new day into the days table """
-    sql = """INSERT INTO days(day_id, user_id, date, total_calories) 
-             VALUES(%s, %s, %s, %s); """
+    client = MongoClient()
+    db = client["fit_journey"]
+    days = db["days"]
 
-    conn = None 
-    try:
-        params = config()
-        conn = psycopg2.connect(**params)
-        cur = conn.cursor()
-        cur.execute(sql, (day["day_id"], day["user_id"], day["date"], day["total_calories"]))
-        conn.commit()
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
+    result = days.insert_one(day)
 
 def put_day(day):
-    sql = """ UPDATE days
-              SET user_id = %s, date = %s, total_calories = %s
-              WHERE day_id = %s"""
+    client = MongoClient()
+    db = client["fit_journey"]
+    days = db["days"]
 
-    conn = None
-    updated_rows = 0
-    print(day)
-    try:
-        params = config()
-        conn = psycopg2.connect(**params)
-        cur = conn.cursor()
-        cur.execute(sql, (day["user_id"], day["date"], day["total_calories"]))
-        updated_rows = cur.rowcount
-        conn.commit()
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-
-    return updated_rows
+    result = days.update_one({"day_id":day["day_id"]}, {"$set": day},
+                              upsert=False)
 
 def get_day(day_id):
-    sql = """ SELECT * FROM days WHERE day_id = %s"""
+    client = MongoClient()
+    db = client["fit_journey"]
+    days = db["days"]
 
-    conn = None
-    day = None
-    try:
-        params = config()
-        conn = psycopg2.connect(**params)
-        cur = conn.cursor()
-        cur.execute(sql, (day_id,))
-        row = cur.fetchone()
-        
-        if row == None:
-            day = None
+    result = days.find({"day_id":day_id})
 
-        else:
-            day = {
-                "day_id": day_id,
-                "user_id": row[1],
-                "date": row[2],
-                "total_calories": row[3]
-            }
-
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-
-    return day
+    for doc in result:
+        doc['_id'] = str(doc['_id'])
+        return doc
 
 def delete_day(day_id):
-    sql = """ DELETE FROM days WHERE day_id = %s """
+    client = MongoClient()
+    db = client["fit_journey"]
+    days = db["days"]
 
-    conn = None
-    rows_deleted = 0
-    try:
-        params = config()
-        conn = psycopg2.connect(**params)
-        cur = conn.cursor()
-        cur.execute(sql, (day_id,))
-        rows_deleted = cur.rowcount
-
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-
-    return rows_deleted
+    result = days.delete_one({"day_id":day_id})
+    return result.deleted_count

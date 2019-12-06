@@ -20,7 +20,7 @@ public class TrackAdopter extends RecyclerView.Adapter<TrackAdopter.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup view, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(view.getContext()).inflate(R.layout.list_tracker, view, false);
+        View v = LayoutInflater.from(view.getContext()).inflate(R.layout.list_tracker, view, false);
 
         return new MyViewHolder(v);
     }
@@ -28,12 +28,12 @@ public class TrackAdopter extends RecyclerView.Adapter<TrackAdopter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         Tracks track = history.get(i);
-
-        holder.distance.setText((int) track.getDistance());
-        holder.start_time.setText(track.getStart_time());
-        holder.end_time.setText(track.getEnd_time());
-        holder.pace.setText((int) track.getPace());
-        holder.calories.setText(track.getCalories_burned());
+        System.out.println(track);
+        holder.distance.setText("Distance: " + Double.toString(track.getDistance()));
+        holder.start_time.setText("Start Time: " + track.getStart_time());
+        holder.end_time.setText("End Time: " + track.getEnd_time());
+        holder.pace.setText("Pace: " + Double.toString(track.getPace()));
+        holder.calories.setText("Calories Burned: " + Integer.toString(track.getCalories_burned()));
     }
 
     @Override

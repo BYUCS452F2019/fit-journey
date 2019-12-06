@@ -32,7 +32,7 @@ public class TrackerActivity extends AppCompatActivity {
         trackerRecyclerView = (RecyclerView) findViewById(R.id.tracker_recycler_view);
         trackerRecyclerView.setHasFixedSize(true);
         trackerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        trackerRecyclerView.setVisibility(View.GONE);
+        trackerRecyclerView.setVisibility(View.VISIBLE);
 
         updateTrackerUI();
     }

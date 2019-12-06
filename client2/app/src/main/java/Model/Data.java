@@ -20,6 +20,8 @@ public class Data {
     public static Data getData() {
         if (data == null) {
             data = new Data();
+
+            // TODO: Remove mock data and use actual data after finishing Proxy and Request/Response
             data.name = "Johne Doe";
             data.username = "johndoe";
             data.age = "23";
@@ -27,15 +29,15 @@ public class Data {
             data.weight = "200lbs";
             data.authToken = "1234567";
             data.trackHistory = new ArrayList<>();
-            Tracks track1 = new Tracks(1,1,104.2,"08:29:48","12:34:25",6,570);
-            Tracks track2 = new Tracks(2,2,14.2,"14:35:48","15:34:25",5,238);
-            Tracks track3 = new Tracks(3,3,8.6,"06:47:25","07:57:43",7,423);
-            Tracks track4 = new Tracks(4,4,7.3,"06:29:48","08:34:25",6,360);
-
-            data.trackHistory.add(track1);
-            data.trackHistory.add(track2);
-            data.trackHistory.add(track3);
-            data.trackHistory.add(track4);
+//            Tracks track1 = new Tracks("1",1,104.2,"08:29:48","12:34:25",6,570);
+//            Tracks track2 = new Tracks("2",2,14.2,"14:35:48","15:34:25",5,238);
+//            Tracks track3 = new Tracks("3",3,8.6,"06:47:25","07:57:43",7,423);
+//            Tracks track4 = new Tracks("4",4,7.3,"06:29:48","08:34:25",6,360);
+//
+//            data.trackHistory.add(track1);
+//            data.trackHistory.add(track2);
+//            data.trackHistory.add(track3);
+//            data.trackHistory.add(track4);
         }
         return data;
     }

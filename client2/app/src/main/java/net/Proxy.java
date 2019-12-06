@@ -1,17 +1,16 @@
 package net;
 
-        import java.io.IOException;
-        import java.io.InputStreamReader;
-        import java.io.OutputStream;
-        import java.io.OutputStreamWriter;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
-
-        import Request.RunRequest;
-        import Request.UserLoginRequest;
-        import Request.UserRegisterRequest;
-        import Response.RunResponse;
-        import Response.UserRegisterResponse;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import Request.RunRequest;
+import Request.UserLoginRequest;
+import Request.UserRegisterRequest;
+import Response.RunResponse;
+import Response.UserRegisterResponse;
 
 public class Proxy {
 

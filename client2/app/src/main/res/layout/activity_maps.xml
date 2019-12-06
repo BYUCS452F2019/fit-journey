@@ -40,9 +40,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
+        <TextView
+            android:id="@+id/timer_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start time: "/>
+        <TextView
+            android:id="@+id/timer_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End time: "/>
         <Button
+            android:id="@+id/timer_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

@@ -6,19 +6,19 @@ from meal_model import *
 meals = [
     {
         "meal_id": 1,
-        "day_id": 1,
+        "user_id": 1,
         "time": datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f'),
         "calories": 500
     },
     {
         "meal_id": 2,
-        "day_id": 1,
+        "user_id": 1,
         "time": datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f'),
         "calories": 1000
     },
     {
         "meal_id": 3,
-        "day_id": 2,
+        "user_id": 2,
         "time": datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f'),
         "calories": 1200
     }
@@ -38,7 +38,7 @@ class Meal(Resource):
         mealID = int(mealID)
         print(request)
         parser = reqparse.RequestParser()
-        parser.add_argument("day_id")
+        parser.add_argument("user_id")
         parser.add_argument("time")
         parser.add_argument("calories")
         args = parser.parse_args()
@@ -50,7 +50,7 @@ class Meal(Resource):
 
         meal = {
             "meal_id": mealID,
-            "day_id": args["day_id"],
+            "user_id": args["user_id"],
             "time": args["time"],
             "calories": args["calories"]
         }
@@ -63,14 +63,14 @@ class Meal(Resource):
         request.get_json()
         mealID = int(mealID)
         parser = reqparse.RequestParser()
-        parser.add_argument("day_id")
+        parser.add_argument("user_id")
         parser.add_argument("time")
         parser.add_argument("calories")
         args = parser.parse_args()
 
         meal = {
             "meal_id": 3,
-            "day_id": args["day_id"],
+            "user_id": args["user_id"],
             "time": args["time"],
             "calories": args["calories"]
         }

@@ -1,21 +1,23 @@
 package Request;
+
+import Response.UserRegisterResponse;
+
 /** Request to register a new account*/
 public class UserRegisterRequest {
     /** Username for new account*/
-    private String userName;
-    private String userID;
+    private String username;
+    private String user_id;
     /** New password for the new username*/
     private String password;
     /** Age for the new account*/
     private String age;
     /** First name for the new user account*/
-    private String firstName;
+    private String first_name;
     /** Last name for the new user account*/
-    private String lastName;
+    private String last_name;
     /** User's gender for new user account*/
     private String gender;
-    private String height_foot;
-    private String height_inch;
+    private String height;
     private String current_weight;
     private String goal_weight;
 
@@ -28,33 +30,42 @@ public class UserRegisterRequest {
      * @param gender Gender for the new account
      */
     public UserRegisterRequest(String userID, String username, String password, String age, String height_foot, String height_inch, String current_weight, String goal_weight,String firstName, String lastName, String gender) {
-        this.userID = userID;
-        this.userName = username;
+        this.user_id = userID;
+        this.username = username;
         this.password = password;
         this.age = age;
-        this.height_foot = height_foot;
-        this.height_inch = height_inch;
+        this.height = height_foot;
         this.current_weight = current_weight;
         this.goal_weight = goal_weight;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = firstName;
+        this.last_name = lastName;
         this.gender = gender;
     }
+    public UserRegisterRequest() {
 
-    public String getUserID() {
-        return userID;
+    }
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getAge() {
@@ -65,20 +76,36 @@ public class UserRegisterRequest {
         this.age = age;
     }
 
-    public String getHeight_foot() {
-        return height_foot;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setHeight_foot(String height_foot) {
-        this.height_foot = height_foot;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getHeight_inch() {
-        return height_inch;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setHeight_inch(String height_inch) {
-        this.height_inch = height_inch;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 
     public String getCurrent_weight() {
@@ -96,60 +123,4 @@ public class UserRegisterRequest {
     public void setGoal_weight(String goal_weight) {
         this.goal_weight = goal_weight;
     }
-
-    /** Default constructor to set account info*/
-    public UserRegisterRequest(){
-        userName = null;
-        password = null;
-        age = null;
-        height_inch = null;
-        height_foot = null;
-        current_weight = null;
-        goal_weight = null;
-
-        firstName = null;
-        lastName = null;
-        gender = null;
-    }
-
-    public String getUsername() {
-        return userName;
-    }
-
-    public void setUsername(String username) {
-        this.userName = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
 }

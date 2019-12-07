@@ -1,28 +1,33 @@
 package Response;
 
 public class AddFoodResponse {
-    private String foodId;
+    private String food_id;
     private String message;
     private String meal_id;
     private String food_name;
     private int portion_size;
 
     public AddFoodResponse(){
-
+        this.food_id = "";
+        this.message = "";
+        this.meal_id = "";
+        this.portion_size = 0;
+        this.food_name = "";
     }
-    public AddFoodResponse(String foodID, String message, String meal_id, int portion_size) {
-        this.foodId = foodId;
+    public AddFoodResponse(String foodID, String message, String meal_id, int portion_size, String food_name) {
+        this.food_id = foodID;
         this.message = message;
         this.meal_id = meal_id;
         this.portion_size = portion_size;
+        this.food_name = food_name;
     }
 
     public String getFoodId() {
-        return foodId;
+        return food_id;
     }
 
     public void setFoodId(String foodId) {
-        this.foodId = foodId;
+        this.food_id = foodId;
     }
 
     public String getMessage() {

@@ -316,7 +316,7 @@ public class LoginFragment extends Fragment {
         @Override
         protected void onPostExecute (UserLoginResponse loginResponses){
             try {
-                if (loginResponses.getAuthToken() == null) {
+                if (loginResponses.getUser_id() == null) {
                     Toast.makeText(getContext(), loginResponses.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -324,7 +324,7 @@ public class LoginFragment extends Fragment {
 
                     model.setLoginResult(loginResponses);
                     //userID
-                    model.setAuthtoken(loginResponses.getAuthToken());
+                    model.setAuthtoken(loginResponses.getUser_id());
                     model.setUserName(loginResponses.getUsername());
                 }
             }
@@ -341,16 +341,15 @@ public class LoginFragment extends Fragment {
             UserRegisterRequest registerRequest = new UserRegisterRequest();
             registerRequest.setUsername(userName);
             registerRequest.setPassword(password);
-            registerRequest.setFirstName(firstName);
-            registerRequest.setLastName(lastName);
+            registerRequest.setFirst_name(firstName);
+            registerRequest.setLast_name(lastName);
             registerRequest.setAge(age);
-            registerRequest.setHeight_foot(height_foot);
-            registerRequest.setHeight_inch(height_inch);
+            registerRequest.setHeight(height_foot);
             registerRequest.setCurrent_weight(current_weight);
             registerRequest.setGoal_weight(goal_weight);
             registerRequest.setGender(gender);
             UUID userID = UUID.randomUUID();
-            registerRequest.setUserID(userID.toString());
+            registerRequest.setUser_id(userID.toString());
             publishProgress("Register a new user...");
 
             ServerProxy serverProxy = new ServerProxy();
@@ -363,7 +362,7 @@ public class LoginFragment extends Fragment {
         }
         @Override
         protected void onPostExecute(UserRegisterResponse registerResponse){
-            if(registerResponse.getAuthToken()== null){
+            if(registerResponse.getUser_id()== null){
                 Toast.makeText(getContext(), registerResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
@@ -371,7 +370,7 @@ public class LoginFragment extends Fragment {
             model.setRegisterResult(registerResponse);
             model.setUserName(registerResponse.getUsername());
             //userId
-            model.setAuthtoken(registerResponse.getAuthToken());
+            model.setAuthtoken(registerResponse.getUser_id());
             Intent intent = new Intent(getActivity(), HomeActivity.class);
             startActivity(intent);
         }

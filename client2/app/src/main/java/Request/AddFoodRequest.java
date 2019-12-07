@@ -6,7 +6,12 @@ public class AddFoodRequest {
     private String food_name;
     private int portion_size;
 
-    public AddFoodRequest(){}
+    public AddFoodRequest(){
+        this.meal_id = "";
+        this.food_item_id = "";
+        this.food_name = "";
+        this.portion_size = 0;
+    }
 
     public AddFoodRequest(String meal_id,String food_item_id, String food_name, int portion_size){
         this.meal_id = meal_id;

@@ -2,12 +2,12 @@ package Request;
 /** Request user log in*/
 public class UserLoginRequest {
     /** User's username for the user*/
-    private String userName;
+    private String username;
     /** User account password*/
     private String password;
     /**Default Constructor to set username and password*/
     public UserLoginRequest() {
-        userName = null;
+        username = null;
         password = null;
     }
 
@@ -16,19 +16,19 @@ public class UserLoginRequest {
      * @param password the user's password for the username
      */
     public UserLoginRequest(String username, String password) {
-        this.userName = username;
+        this.username = username;
         this.password = password;
     }
 
     // Getters
     public String getUsername() {
-        return userName;
+        return username;
     }
     public String getPassword() {
         return password;
     }
 
     // Setters
-    public void setUsername(String username) { this.userName = username; }
+    public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
 }

@@ -1,35 +1,38 @@
 package Response;
 
 public class GetMealResponse {
-    private int mealID;
-    private int dayID;
+    private String meal_id;
+    private String user_id;
     private String time;
     private int calories;
 
     public GetMealResponse() {
+        this.meal_id = "";
+        this.user_id = "";
+
     }
 
-    public GetMealResponse(int mealID, int dayID, String time, int calories) {
-        this.mealID = mealID;
-        this.dayID = dayID;
+    public GetMealResponse(String meal_id, String user_id, String time, int calories) {
+        this.meal_id = meal_id;
+        this.user_id = user_id;
         this.time = time;
         this.calories = calories;
     }
 
-    public int getMealID() {
-        return mealID;
+    public String getMeal_id() {
+        return meal_id;
     }
 
-    public void setMealID(int mealID) {
-        this.mealID = mealID;
+    public void setMeal_id(String meal_id) {
+        this.meal_id = meal_id;
     }
 
-    public int getDayID() {
-        return dayID;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setDayID(int dayID) {
-        this.dayID = dayID;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getTime() {

@@ -1,19 +1,21 @@
 package Response;
 
 import java.util.List;
-
 import Model.FoodItemsModel;
+import java.util.ArrayList;
 
 public class GetListFoodsResponse {
     private List<FoodItemsModel> data;
     private String message;
 
+    public GetListFoodsResponse() {
+        this.data = new ArrayList<>();
+        message = "";
+    }
+
     public GetListFoodsResponse(List<FoodItemsModel> data, String message) {
         this.data = data;
         this.message = message;
-    }
-
-    public GetListFoodsResponse() {
     }
 
     public List<FoodItemsModel> getListMeals() {

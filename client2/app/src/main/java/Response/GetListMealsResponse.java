@@ -1,5 +1,6 @@
 package Response;
 
+import java.util.ArrayList;
 import java.util.List;
 import Model.MealModel;
 
@@ -13,6 +14,8 @@ public class GetListMealsResponse {
     }
 
     public GetListMealsResponse() {
+        data = new ArrayList<>();
+        message = "";
     }
 
     public List<MealModel> getListMeals() {

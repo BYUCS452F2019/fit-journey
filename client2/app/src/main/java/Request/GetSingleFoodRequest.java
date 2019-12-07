@@ -2,36 +2,38 @@ package Request;
 
 public class GetSingleFoodRequest {
     /** ID for the event*/
-    String foodID;
+    String food_id;
     /** Auth token for the user*/
-    String authToken;
+    String meal_id;
 
     /** Default Constructor set eventID and authToken*/
     public GetSingleFoodRequest() {
+        food_id = "";
+        meal_id = "";
     }
 
     /** Constructor to set eventID and authToken
      * @param foodID ID for events
-     * @param authToken Auth token for user who have the event
+     * @param meal_id Auth token for user who have the event
      */
-    public GetSingleFoodRequest(String foodID, String authToken) {
-        this.foodID = foodID;
-        this.authToken = authToken;
+    public GetSingleFoodRequest(String foodID, String meal_id) {
+        this.food_id = foodID;
+        this.meal_id = meal_id;
     }
 
-    public String getFoodID() {
-        return foodID;
+    public String getFood_id() {
+        return food_id;
     }
 
-    public void setFoodID(String foodID) {
-        this.foodID = foodID;
+    public void setFood_id(String food_id) {
+        this.food_id = food_id;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public String getMeal_id() {
+        return meal_id;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setMeal_id(String meal_id) {
+        this.meal_id = meal_id;
     }
 }

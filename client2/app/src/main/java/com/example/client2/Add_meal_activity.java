@@ -83,7 +83,7 @@ public class Add_meal_activity extends AppCompatActivity {
             System.out.println("I am here");
             UUID mealID = UUID.randomUUID();
             userID = LoginModel.getModel().getAuthtoken();
-            AddMealRequest addMealRequest = new AddMealRequest(mealID.toString(), userID, time_text);
+            AddMealRequest addMealRequest = new AddMealRequest(mealID.toString(), userID, time_text, 0);
 
 
             publishProgress("Adding a new food");

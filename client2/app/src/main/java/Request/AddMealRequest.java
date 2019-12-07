@@ -1,33 +1,39 @@
 package Request;
 
 public class AddMealRequest {
-    private String mealID;
-    private String userID;
+    private String meal_id;
+    private String user_id;
     private String time;
+    private int calories;
 
     public AddMealRequest() {
+        meal_id = "";
+        user_id = "";
+        time = "";
+        calories = 0;
     }
 
-    public AddMealRequest(String mealID, String userID,String time) {
-        this.mealID = mealID;
+    public AddMealRequest(String mealID, String userID,String time, int calories) {
+        this.meal_id = mealID;
         this.time = time;
-        this.userID = userID;
+        this.user_id = userID;
+        this.calories = calories;
     }
 
-    public String getMealID() {
-        return mealID;
+    public String getMeal_id() {
+        return meal_id;
     }
 
-    public void setMealID(String mealID) {
-        this.mealID = mealID;
+    public void setMeal_id(String meal_id) {
+        this.meal_id = meal_id;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void serUserID(String userID) {
-        this.userID = userID;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getTime() {
@@ -38,8 +44,11 @@ public class AddMealRequest {
         this.time = time;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public int getCalories() {
+        return calories;
     }
 
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
 }

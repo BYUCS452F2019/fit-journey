@@ -1,28 +1,33 @@
 package Response;
 
 public class AddMealResponse {
-    private String mealID;
+    private String meal_id;
     private String time;
     private int calories;
-    private String userID;
+    private String user_id;
     private String message;
 
     public AddMealResponse(){
-
+        this.meal_id = "";
+        this.message = "";
+        this.time = "";
+        this.calories = 0;
+        this.user_id = "";
     }
-    public AddMealResponse(String mealID, String message, String time, int calories) {
-        this.mealID = mealID;
+    public AddMealResponse(String mealID, String message, String time, int calories, String user_id) {
+        this.meal_id = mealID;
         this.message = message;
         this.time = time;
         this.calories = calories;
+        this.user_id = user_id;
     }
 
     public String getMealId() {
-        return mealID;
+        return meal_id;
     }
 
     public void setMealId(String foodId) {
-        this.mealID = foodId;
+        this.meal_id = foodId;
     }
 
     public String getMessage() {
@@ -34,11 +39,11 @@ public class AddMealResponse {
     }
 
     public String getMealID() {
-        return mealID;
+        return meal_id;
     }
 
     public void setMealID(String mealID) {
-        this.mealID = mealID;
+        this.meal_id = mealID;
     }
 
     public String getTime() {
@@ -58,10 +63,10 @@ public class AddMealResponse {
     }
 
     public String getUserID() {
-        return userID;
+        return user_id;
     }
 
     public void setUserID(String userID) {
-        this.userID = userID;
+        this.user_id = userID;
     }
 }

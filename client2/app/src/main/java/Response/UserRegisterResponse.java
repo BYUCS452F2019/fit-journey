@@ -2,9 +2,9 @@ package Response;
 /** Response for register requirements*/
 public class UserRegisterResponse {
     /** user's auth token*/
-    private String userID;
+    private String user_id;
     /** user's username*/
-    private String userName;
+    private String username;
     /** Throw a message if an error occurs*/
     private String message;
     /** Default constructor to set register response info*/
@@ -17,21 +17,31 @@ public class UserRegisterResponse {
      * @param message Error handler
      */
     public UserRegisterResponse(String userID, String username, String message) {
-        this.userID = userID;
-        this.userName = username;
+        this.user_id = userID;
+        this.username = username;
         this.message = message;
     }
 
-    // Getters
-    public String getAuthToken() {
-        return userID;
+    public String getUser_id() {
+        return user_id;
     }
-    public String getUsername() { return userName; }
-    public String getMessage() { return message; }
 
-    // Setters
-    public void setUsername(String username) { this.userName = username; }
-    public void setAuthToken(String authToken) { this.userID = authToken; }
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     public void setMessage(String message) {
         this.message = message;
     }

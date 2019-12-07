@@ -39,7 +39,6 @@ public class LoginFragment extends Fragment {
     private EditText lastNameText;
     private EditText ageText;
     private EditText heightFootText;
-    private EditText heightInchText;
     private EditText currentWeightText;
     private EditText goalWeightText;
     private RadioButton femaleText;
@@ -83,7 +82,6 @@ public class LoginFragment extends Fragment {
         lastNameText = (EditText) v.findViewById(R.id.lastName);
         ageText = (EditText) v.findViewById(R.id.age);
         heightFootText = (EditText) v.findViewById(R.id.height_foot);
-        heightInchText = (EditText) v.findViewById(R.id.height_inch);
         currentWeightText = (EditText) v.findViewById(R.id.current_weight);
         goalWeightText = (EditText) v.findViewById(R.id.goal_weight);
         maleText = (RadioButton) v.findViewById(R.id.male);
@@ -197,23 +195,6 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        heightInchText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                height_inch = s.toString();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                checkRegisterButton();
-            }
-        });
-
         currentWeightText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -304,7 +285,7 @@ public class LoginFragment extends Fragment {
     protected void checkRegisterButton(){
         if(userNameText.getText().toString().equals("") || passwordText.getText().toString().equals("") || firstNameText.getText().toString().equals("")
                 || lastNameText.getText().toString().equals("") || ageText.getText().toString().equals("")|| heightFootText.getText().toString().equals("")
-                || heightInchText.getText().toString().equals("")|| currentWeightText.getText().toString().equals("")|| goalWeightText.getText().toString().equals("")){
+                || currentWeightText.getText().toString().equals("")|| goalWeightText.getText().toString().equals("")){
             registerText.setEnabled(false);
         }
         else{

@@ -166,7 +166,7 @@
 
             <EditText
                 android:id="@+id/height_foot"
-                android:layout_width="80dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:fontFamily="@font/noto_serif_font"
@@ -179,24 +179,7 @@
                 android:layout_height="wrap_content"
                 android:width="35dp"
                 android:fontFamily="@font/noto_serif_font"
-                android:text="ft"
-                android:textAlignment="textEnd" />
-
-            <EditText
-                android:id="@+id/height_inch"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/noto_serif_font"
-                android:layout_gravity="start"
-                android:ems="11"
-                android:inputType="text" />
-            <TextView
-                style="?android:listSeparatorTextViewStyle"
-                android:layout_width="wrap_content"
-                android:fontFamily="@font/noto_serif_font"
-                android:layout_height="wrap_content"
-                android:width="35dp"
-                android:text="in"
+                android:text="cm"
                 android:textAlignment="textEnd" />
 
         </LinearLayout>

@@ -33,6 +33,10 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".TimerActivity" />
+        <activity android:name=".Add_meal_activity"/>
+        <activity android:name=".Add_food_activity"/>
+        <activity android:name=".Food_track_activity"/>
+        <activity android:name=".MealHistoryActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

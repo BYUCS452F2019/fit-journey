@@ -44,7 +44,6 @@ users = [
 
 class User(Resource):
     def get(self, userID):
-        userID = int(userID)
         user = get_user(userID)
         if user == None:
             return "User not found", 404
@@ -53,7 +52,6 @@ class User(Resource):
 
     def post(self, userID):
         request.get_json()
-        userID = int(userID)
         print(request)
         parser = reqparse.RequestParser()
         parser.add_argument("username")
@@ -89,7 +87,6 @@ class User(Resource):
 
     def put(self, userID):
         request.get_json()
-        userID = int(userID)
         parser = reqparse.RequestParser()
         parser.add_argument("username")
         parser.add_argument("password")
@@ -123,8 +120,5 @@ class User(Resource):
             return user, 201
 
     def delete(self, userID):
-        userID = int(userID)
         row_count = delete_user(userID)
-        #global users
-        #users = [user for user in users if user["user_id"] != userID]
         return "{} rows deleted.".format(row_count), 200

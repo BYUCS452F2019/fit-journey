@@ -1,4 +1,4 @@
-from flask_restful import Resource, request
+from flask_restful import Resource, request, reqparse
 from datetime import datetime
 
 from run_model import *
@@ -38,7 +38,6 @@ runs = [
 
 class Run(Resource):
     def get(self, runID):
-        runID = int(runID)
         run = get_run(runID)
         if run == None:
             return "Run not found", 404
@@ -51,7 +50,6 @@ class Run(Resource):
 
     def post(self, runID):
         request.get_json()
-        runID = int(runID)
         parser = reqparse.RequestParser()
         parser.add_argument("user_id")
         parser.add_argument("distance")
@@ -85,7 +83,6 @@ class Run(Resource):
 
     def put(self, runID):
         request.get_json()
-        runID = int(runID)
         parser = reqparse.RequestParser()
         parser.add_argument("user_id")
         parser.add_argument("distance")
@@ -126,7 +123,6 @@ class Run(Resource):
             return run, 201
 
     def delete(self, runID):
-        runID = int(runID)
         row_count = delete_run(runID)
         #global runs
         #runs = [run for run in runs if run["run_id"] != runID]

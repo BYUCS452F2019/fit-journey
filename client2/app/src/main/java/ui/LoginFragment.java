@@ -13,11 +13,15 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
 import com.example.client2.HomeActivity;
 import com.example.client2.MainActivity;
 import com.example.client2.R;
 
-import Model.Data;
+import net.ServerProxy;
+
+import java.util.UUID;
+
 import Model.LoginModel;
 import Request.UserLoginRequest;
 import Request.UserRegisterRequest;
@@ -26,8 +30,6 @@ import Response.UserRegisterResponse;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-
 
 public class LoginFragment extends Fragment {
 
@@ -47,8 +49,8 @@ public class LoginFragment extends Fragment {
 
     private MainActivity mainActivity;
 
-    private String host = "";
-    private String port = "";
+    private String host = "192.168.253.105";
+    private String port = "5000";
     private String userName = "";
     private String password = "";
     private String firstName= "";
@@ -88,7 +90,6 @@ public class LoginFragment extends Fragment {
         femaleText = (RadioButton) v.findViewById(R.id.female);
         signinText = (Button) v.findViewById(R.id.signIn);
         registerText = (Button) v.findViewById(R.id.register);
-        Data data = Data.getData();
 
         registerText.setEnabled(false);
         signinText.setEnabled(false);
@@ -109,9 +110,9 @@ public class LoginFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 checkRegisterButton();
                 checkSigninButton();
+
             }
         });
-        data.setUsername("userName");
         passwordText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -268,25 +269,23 @@ public class LoginFragment extends Fragment {
         signinText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //switch to timer
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(intent);
+//                //switch to timer
+//                Intent intent = new Intent(getActivity(), SwitchActivity.class);
+//                startActivity(intent);
+                LoginAsyncTask loginAsyncTask = new LoginAsyncTask();
+                loginAsyncTask.execute();
 
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), TimerActivity2.class);
-//                getActivity().startActivity(intent);
-//                LoginAsyncTask loginTask = new LoginAsyncTask();
-//                loginTask.execute();
             }
         });
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                RegisterAsyncTask registerTask = new RegisterAsyncTask();
+                registerTask.execute();
                 //switch to timer
-                Intent intent = new Intent(getActivity(), HomeActivity.class);
-                startActivity(intent);
-//                RegisterAsyncTask registerTask = new RegisterAsyncTask();
-//                registerTask.execute();
+//                Intent intent = new Intent(getActivity(), SwitchActivity.class);
+//                startActivity(intent);
             }
         });
 
@@ -321,9 +320,12 @@ public class LoginFragment extends Fragment {
             loginRequest.setUsername(userName);
 
             publishProgress("Logging in...");
-
-//            ServerProxy proxy = new ServerProxy();
-//            return proxy.login(host, port, loginRequest);
+            // TODO: Comment this back after connecting with Server
+//            ServerProxy serverProxy = new ServerProxy();
+//            return serverProxy.login(loginRequest);
+            // TODO: Comment this out
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
             return null;
         }
         @Override
@@ -340,8 +342,9 @@ public class LoginFragment extends Fragment {
                     LoginModel model = LoginModel.getModel();
 
                     model.setLoginResult(loginResponses);
+                    //userID
                     model.setAuthtoken(loginResponses.getAuthToken());
-
+                    model.setUserName(loginResponses.getUsername());
                 }
             }
             catch(Exception e){
@@ -365,12 +368,12 @@ public class LoginFragment extends Fragment {
             registerRequest.setCurrent_weight(current_weight);
             registerRequest.setGoal_weight(goal_weight);
             registerRequest.setGender(gender);
-
+            UUID userID = UUID.randomUUID();
+            registerRequest.setUserID(userID.toString());
             publishProgress("Register a new user...");
 
-//            ServerProxy serverProxy = new ServerProxy();
-//            return serverProxy.register(host, port, registerRequest);
-            return null;
+            ServerProxy serverProxy = new ServerProxy();
+            return serverProxy.register(userID.toString(), registerRequest);
         }
         @Override
         protected void onProgressUpdate(String... toast){
@@ -379,20 +382,17 @@ public class LoginFragment extends Fragment {
         }
         @Override
         protected void onPostExecute(UserRegisterResponse registerResponse){
-            if(registerResponse.getAuthToken()==null){
+            if(registerResponse.getAuthToken()== null){
                 Toast.makeText(getContext(), registerResponse.getMessage(), Toast.LENGTH_SHORT).show();
             }
-            else{
-                LoginModel model = LoginModel.getModel();
-                model.setRegisterResult(registerResponse);
-                model.setAuthtoken(registerResponse.getAuthToken());
 
-
-            }
+            LoginModel model = LoginModel.getModel();
+            model.setRegisterResult(registerResponse);
+            model.setUserName(registerResponse.getUsername());
+            //userId
+            model.setAuthtoken(registerResponse.getAuthToken());
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
         }
-
     }
-
-
-
 }

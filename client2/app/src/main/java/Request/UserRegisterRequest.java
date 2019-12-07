@@ -3,6 +3,7 @@ package Request;
 public class UserRegisterRequest {
     /** Username for new account*/
     private String userName;
+    private String userID;
     /** New password for the new username*/
     private String password;
     /** Age for the new account*/
@@ -26,7 +27,8 @@ public class UserRegisterRequest {
      * @param lastName Last name for the new account
      * @param gender Gender for the new account
      */
-    public UserRegisterRequest(String username, String password, String age, String height_foot, String height_inch, String current_weight, String goal_weight,String firstName, String lastName, String gender) {
+    public UserRegisterRequest(String userID, String username, String password, String age, String height_foot, String height_inch, String current_weight, String goal_weight,String firstName, String lastName, String gender) {
+        this.userID = userID;
         this.userName = username;
         this.password = password;
         this.age = age;
@@ -37,6 +39,14 @@ public class UserRegisterRequest {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getUserName() {

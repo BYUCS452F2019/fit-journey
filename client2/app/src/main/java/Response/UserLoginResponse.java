@@ -26,34 +26,28 @@ public class UserLoginResponse {
         this.message = message;
     }
 
+    // Getters
     public String getAuthToken() {
         return authToken;
     }
-
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
-
     public String getUsername() {
         return userName;
     }
-
-    public void setUsername(String username) {
-        this.userName = username;
-    }
-
     public String getPersonID() {
         return personID;
     }
-
-    public void setPersonID(String personID) {
-        this.personID = personID;
-    }
-
     public String getMessage() {
         return message;
     }
 
+    // Setters
+    public void setAuthToken(String authToken) { this.authToken = authToken; }
+    public void setPersonID(String personID) {
+        this.personID = personID;
+    }
+    public void setUsername(String username) {
+        this.userName = username;
+    }
     public void setMessage(String message) {
         this.message = message;
     }

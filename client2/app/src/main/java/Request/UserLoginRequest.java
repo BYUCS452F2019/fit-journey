@@ -20,19 +20,15 @@ public class UserLoginRequest {
         this.password = password;
     }
 
+    // Getters
     public String getUsername() {
         return userName;
     }
-
-    public void setUsername(String username) {
-        this.userName = username;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    // Setters
+    public void setUsername(String username) { this.userName = username; }
+    public void setPassword(String password) { this.password = password; }
 }

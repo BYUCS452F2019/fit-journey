@@ -2,31 +2,49 @@ package Request;
 
 public class RunRequest {
     private String userName;
-    private String runID;
+    private int run_id;
+    private int user_id;
+    private double distance;
+    private String start_time;
+    private String end_time;
+    private double pace;
+    private int calories_burned;
 
-    public RunRequest() {
-        userName = null;
-        runID = null;
+    public RunRequest(String userName, int run_id, int user_id, double distance, String start_time, String end_time, double pace, int calories_burned) {
+        this.userName = userName;
+        this.run_id = run_id;
+        this.user_id = user_id;
+        this.distance = distance;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.pace = pace;
+        this.calories_burned = calories_burned;
     }
 
-    public RunRequest(String username, String password) {
-        this.userName = username;
-        this.runID = password;
-    }
-
-    public String getUsername() {
+    // Getters
+    public String getUserName() {
         return userName;
     }
-
-    public void setUsername(String username) {
-        this.userName = username;
+    public int getRun_id() {
+        return run_id;
     }
+    public int getUser_id() { return user_id; }
+    public double getDistance() { return distance; }
+    public String getStart_time() { return start_time; }
+    public String getEnd_time() { return end_time; }
+    public double getPace() { return pace; }
+    public int getCalories_burned() { return calories_burned; }
 
-    public String getRunID() {
-        return runID;
+    // Setters
+    public void setUsername(String userName) {
+        this.userName = userName;
     }
-
-    public void setRunID(String runID) {
-        this.runID = runID;
-    }
+    public void setRun_id(int run_id) { this.run_id = run_id; }
+    public void setUser_id(int user_id) { this.user_id = user_id; }
+    public void setDistance(double distance) { this.distance = distance; }
+    public void setStart_time(String start_time) { this.start_time = start_time; }
+    public void setEnd_time(String end_time) { this.end_time = end_time; }
+    public void setPace(double pace) { this.pace = pace; }
+    public void setCalories_burned(int calories_burned) { this.calories_burned = calories_burned; }
 }
+

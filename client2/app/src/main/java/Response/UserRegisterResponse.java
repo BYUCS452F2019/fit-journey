@@ -24,26 +24,16 @@ public class UserRegisterResponse {
         this.message = message;
     }
 
+    // Getters
     public String getAuthToken() {
         return authToken;
     }
+    public String getUsername() { return userName; }
+    public String getMessage() { return message; }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
-
-    public String getUsername() {
-        return userName;
-    }
-
-    public void setUsername(String username) {
-        this.userName = username;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
+    // Setters
+    public void setUsername(String username) { this.userName = username; }
+    public void setAuthToken(String authToken) { this.authToken = authToken; }
     public void setMessage(String message) {
         this.message = message;
     }

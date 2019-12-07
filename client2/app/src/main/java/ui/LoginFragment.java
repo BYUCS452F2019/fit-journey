@@ -13,12 +13,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import com.example.client2.HomeActivity;
 import com.example.client2.MainActivity;
 import com.example.client2.R;
 import com.example.client2.TimerActivity;
-
+import net.Proxy;
 import Model.Data;
 import Model.LoginModel;
 import Request.UserLoginRequest;
@@ -324,8 +323,8 @@ public class LoginFragment extends Fragment {
 
             publishProgress("Logging in...");
 
-//            ServerProxy serverProxy = new ServerProxy();
-//            return serverProxy.login(host, port, loginRequest);
+//            Proxy proxy = new Proxy();
+//            return proxy.login(host, port, loginRequest);
             return null;
         }
         @Override
@@ -370,7 +369,7 @@ public class LoginFragment extends Fragment {
 
             publishProgress("Register a new user...");
 
-//            ServerProxy serverProxy = new ServerProxy();
+//            Proxy serverProxy = new Proxy();
 //            return serverProxy.register(host, port, registerRequest);
             return null;
         }

@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:ems="6"
             android:fontFamily="@font/noto_serif_font"
-            android:text="Track History" />
+            android:text="Runs History" />
         <Button
             android:id="@+id/meal_track"
             android:layout_width="match_parent"

@@ -2,7 +2,7 @@ package com.example.client2;
 
 import Adopter.TrackAdopter;
 import Model.Data;
-import Model.Tracks;
+import Model.RunModel;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,9 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class TrackerActivity extends AppCompatActivity {
+public class RunsHistoryActivity extends AppCompatActivity {
 
     private TextView name;
     private Data data = Data.getData();
@@ -24,7 +23,7 @@ public class TrackerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tracker);
+        setContentView(R.layout.activity_runs_history);
 
         name = findViewById(R.id.track_name);
         name.setText(data.getName());
@@ -38,7 +37,7 @@ public class TrackerActivity extends AppCompatActivity {
     }
 
     private void updateTrackerUI() {
-        ArrayList<Tracks> history = data.getTrackHistory();
+        ArrayList<RunModel> history = data.getRunsHistory();
 
         if(history != null) {
             trackAdopter = new TrackAdopter(history);

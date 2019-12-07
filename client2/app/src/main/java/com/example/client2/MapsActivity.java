@@ -118,7 +118,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             System.out.println("I am here");
             UUID run_id = UUID.randomUUID();
             AddRunRequest addRunRequest = new AddRunRequest(run_id.toString(), user_id, 0, start_time, end_time, 0, 0, "Unknown");
-            publishProgress("Adding a new food");
+            publishProgress("Adding a new run");
 
             ServerProxy serverProxy = new ServerProxy();
             return serverProxy.addRun(run_id.toString(),addRunRequest);

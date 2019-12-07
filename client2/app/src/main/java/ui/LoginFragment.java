@@ -16,8 +16,7 @@ import android.widget.Toast;
 import com.example.client2.HomeActivity;
 import com.example.client2.MainActivity;
 import com.example.client2.R;
-import com.example.client2.TimerActivity;
-import net.Proxy;
+
 import Model.Data;
 import Model.LoginModel;
 import Request.UserLoginRequest;
@@ -323,7 +322,7 @@ public class LoginFragment extends Fragment {
 
             publishProgress("Logging in...");
 
-//            Proxy proxy = new Proxy();
+//            ServerProxy proxy = new ServerProxy();
 //            return proxy.login(host, port, loginRequest);
             return null;
         }
@@ -369,7 +368,7 @@ public class LoginFragment extends Fragment {
 
             publishProgress("Register a new user...");
 
-//            Proxy serverProxy = new Proxy();
+//            ServerProxy serverProxy = new ServerProxy();
 //            return serverProxy.register(host, port, registerRequest);
             return null;
         }

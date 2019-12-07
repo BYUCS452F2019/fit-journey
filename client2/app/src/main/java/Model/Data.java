@@ -21,7 +21,7 @@ public class Data {
         if (data == null) {
             data = new Data();
 
-            // TODO: Remove mock data and use actual data after finishing Proxy and Request/Response
+            // TODO: Remove mock data and use actual data after finishing ServerProxy and Request/Response
             data.name = "Johne Doe";
             data.username = "johndoe";
             data.age = "23";

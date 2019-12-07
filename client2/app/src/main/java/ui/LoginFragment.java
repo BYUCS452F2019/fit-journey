@@ -386,8 +386,7 @@ public class LoginFragment extends Fragment {
                 LoginModel model = LoginModel.getModel();
                 model.setRegisterResult(registerResponse);
                 model.setAuthtoken(registerResponse.getAuthToken());
-                model.setServerHost(host);
-                model.setServerPort(port);
+
 
             }
         }

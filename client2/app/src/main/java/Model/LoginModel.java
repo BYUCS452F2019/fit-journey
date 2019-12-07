@@ -3,16 +3,13 @@ package Model;
 import Response.UserLoginResponse;
 import Response.UserRegisterResponse;
 
-
 public class LoginModel {
     private static LoginModel model;
-    private String authtoken;
+    private String userID;
     private String rootPersonID;
     private UserLoginResponse loginResult;
     private UserRegisterResponse registerResult;
-
-    private String serverHost;
-    private String serverPort;
+    private String userName;
 
     // constructor is private
     private LoginModel() {
@@ -28,11 +25,11 @@ public class LoginModel {
     }
 
     public String getAuthtoken() {
-        return authtoken;
+        return userID;
     }
 
     public void setAuthtoken(String authtoken) {
-        this.authtoken = authtoken;
+        this.userID = authtoken;
     }
 
     public UserLoginResponse getLoginResult() {
@@ -51,19 +48,11 @@ public class LoginModel {
         this.registerResult = registerResult;
     }
 
-    public String getServerHost() {
-        return serverHost;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setServerHost(String serverHost) {
-        this.serverHost = serverHost;
-    }
-
-    public String getServerPort() {
-        return serverPort;
-    }
-
-    public void setServerPort(String serverPort) {
-        this.serverPort = serverPort;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

@@ -9,11 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import net.ServerProxy;
-
 import java.util.UUID;
-
 import Model.FoodItemsModel;
 import Request.AddFoodRequest;
 import Response.AddFoodResponse;
@@ -25,7 +22,6 @@ public class Add_food_activity extends AppCompatActivity {
     private EditText foodName;
     private EditText portionSize;
     private Button submit;
-
     private String food;
     private int portion;
     private String mealID;
@@ -136,7 +132,5 @@ public class Add_food_activity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
     }
-
 }

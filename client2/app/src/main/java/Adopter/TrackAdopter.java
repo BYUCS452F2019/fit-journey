@@ -6,14 +6,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.client2.R;
 import java.util.List;
-import Model.Tracks;
+
+import Model.RunModel;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TrackAdopter extends RecyclerView.Adapter<TrackAdopter.MyViewHolder> {
-    private List<Tracks> history;
+    private List<RunModel> history;
 
-    public TrackAdopter(List<Tracks> history) {
+    public TrackAdopter(List<RunModel> history) {
         this.history = history;
     }
 
@@ -27,7 +28,7 @@ public class TrackAdopter extends RecyclerView.Adapter<TrackAdopter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        Tracks track = history.get(i);
+        RunModel track = history.get(i);
         System.out.println(track);
         holder.distance.setText("Distance: " + Double.toString(track.getDistance()));
         holder.start_time.setText("Start Time: " + track.getStart_time());

@@ -67,21 +67,21 @@
             android:layout_height="wrap_content"
             android:ems="6"
             android:fontFamily="@font/noto_serif_font"
-            android:text="Timer" />
+            android:text="Run Timer" />
         <Button
             android:id="@+id/home_tracker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="6"
             android:fontFamily="@font/noto_serif_font"
-            android:text="Tracker" />
+            android:text="Track History" />
         <Button
             android:id="@+id/meal_track"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="6"
             android:fontFamily="@font/noto_serif_font"
-            android:text="Meals" />
+            android:text="Manage Meals" />
 
     </LinearLayout>
 

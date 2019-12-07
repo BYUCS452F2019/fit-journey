@@ -1,14 +1,19 @@
 package com.example.client2;
 
 import Model.Data;
-import Model.Tracks;
+import Request.AddRunRequest;
+import Response.AddRunResponse;
 import androidx.fragment.app.FragmentActivity;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,14 +25,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import net.ServerProxy;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Chronometer chronometer;
     private boolean isStart;
+    private int user_id;
     Calendar calendar;
-    String startTime;
-    String endTime;
+    String start_time;
+    String end_time;
     SimpleDateFormat simpleDateFormat;
     TextView tv_start;
     TextView tv_end;
@@ -39,6 +47,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        user_id = data.getUser_id();
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -67,11 +77,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             lEnd = new Date().getTime();
             lElapsed = lEnd - lStart;
             simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-            endTime = simpleDateFormat.format(calendar.getTime());
-            tv_end.setText("End Time: " + endTime);
+            end_time = simpleDateFormat.format(calendar.getTime());
+            tv_end.setText("End Time: " + end_time);
 
-            storeTimer(startTime, endTime, lElapsed);
-
+            // TODO: Use this function to save data temporariliy
+//            storeTimer(start_time, end_time, lElapsed);
+            RunRequestAsyncTask runRequestAsyncTask = new RunRequestAsyncTask();
+            runRequestAsyncTask.execute();
         } else{
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start();
@@ -81,21 +93,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             calendar = Calendar.getInstance();
             lStart = new Date().getTime();
             simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-            startTime = simpleDateFormat.format(calendar.getTime());
-            tv_start.setText("Start Time: " + startTime);
+            start_time = simpleDateFormat.format(calendar.getTime());
+            tv_start.setText("Start Time: " + start_time);
         }
     }
 
-    public void storeTimer(String startTime, String endTime, long lElapsed) {
-        Tracks track = new Tracks();
-        track.setRun_id(UUID.randomUUID().toString());
-        track.setStart_time(startTime);
-        track.setEnd_time(endTime);
-        track.setDistance(0);
-        track.setCalories_burned(0);
-        track.setPace(0);
 
-        data.getTrackHistory().add(track);
+
+//    public void storeTimer(String start_time, String end_time, long lElapsed) {
+//        RunModel track = new RunModel();
+//        track.setRun_id(UUID.randomUUID().toString());
+//        track.setStart_time(start_time);
+//        track.setEnd_time(end_time);
+//        track.setDistance(0);
+//        track.setCalories_burned(0);
+//        track.setPace(0);
+//
+//        data.getRunsHistory().add(track);
+//    }
+
+    private class RunRequestAsyncTask extends AsyncTask<Void, String, AddRunResponse> {
+        @Override
+        protected AddRunResponse doInBackground(Void... voids) {
+            System.out.println("I am here");
+            UUID run_id = UUID.randomUUID();
+            AddRunRequest addRunRequest = new AddRunRequest(run_id.toString(), user_id, 0, start_time, end_time, 0, 0, "Unknown");
+            publishProgress("Adding a new food");
+
+            ServerProxy serverProxy = new ServerProxy();
+            return serverProxy.addRun(run_id.toString(),addRunRequest);
+        }
+        @Override
+        protected void onProgressUpdate(String... toast) {
+            Toast.makeText(MapsActivity.this, toast[0], Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        protected void onPostExecute (AddRunResponse runResponse){
+            try {
+                if (runResponse.getUser_id() == null) {
+                    Toast.makeText(MapsActivity.this, runResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

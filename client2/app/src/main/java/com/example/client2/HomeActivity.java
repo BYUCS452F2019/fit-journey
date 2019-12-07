@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         trackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TrackerActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RunsHistoryActivity.class);
                 startActivity(intent);
             }
         });
@@ -62,10 +62,9 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MealsAsyncTask addMealAsyncTask = new MealsAsyncTask();
 
-                //TODO: Comment one line back and then remove Intent and next lines
-//                addMealAsyncTask.execute();
-                Intent intent = new Intent(HomeActivity.this, Food_track_activity.class);
-                startActivity(intent);
+                addMealAsyncTask.execute();
+//                Intent intent = new Intent(HomeActivity.this, Food_track_activity.class);
+//                startActivity(intent);
 
             }
         });

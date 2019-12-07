@@ -1,38 +1,25 @@
 package Response;
 
 import java.util.ArrayList;
-        import Model.Tracks;
+        import Model.RunModel;
 
-public class RunResponse {
-    private String authToken;
-    private String userName;
-    private ArrayList<Tracks> history;
+public class AddRunResponse {
+    private String user_id;
     private String message;
 
-    public RunResponse() { }
+    public AddRunResponse() { }
 
-    public RunResponse(String authToken, String userName, ArrayList<Tracks> history,  String message) {
-        this.authToken = authToken;
-        this.userName =userName;
+    public AddRunResponse(String authToken, String userName, ArrayList<RunModel> history, String message) {
+        this.user_id = user_id;
         this.message = message;
-        this.history = history;
     }
 
     // Getters
-    public String getAuthToken() {
-        return authToken;
-    }
-    public String getUserName() {
-        return userName;
-    }
+    public String getUser_id() { return user_id; }
     public String getMessage() { return message; }
-    public ArrayList<Tracks> getHistory() { return history; }
 
     // Setters
-    public void setAuthToken(String authToken) { this.authToken = authToken; }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public void setUser_id(String user_id) { this.user_id = user_id; }
     public void setMessage(String message) { this.message = message; }
-    public void setHistory(ArrayList<Tracks> history) { this.history = history; }
+
 }

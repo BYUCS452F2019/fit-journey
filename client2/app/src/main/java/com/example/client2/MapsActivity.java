@@ -32,7 +32,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private Chronometer chronometer;
     private boolean isStart;
-    private int user_id;
+    private String user_id;
     Calendar calendar;
     String start_time;
     String end_time;

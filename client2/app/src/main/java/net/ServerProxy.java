@@ -8,17 +8,24 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+
+import Model.Data;
 import Model.FoodItemsModel;
 import Model.MealModel;
+import Model.RunModel;
 import Request.AddFoodRequest;
 import Request.AddMealRequest;
+import Request.AddRunRequest;
 import Request.UserLoginRequest;
 import Request.UserRegisterRequest;
 import Response.AddFoodResponse;
 import Response.AddMealResponse;
 import Response.GetListFoodsResponse;
 import Response.GetListMealsResponse;
+import Response.AddRunResponse;
+import Response.GetRunsHistoryResponse;
 import Response.UserLoginResponse;
 import Response.UserRegisterResponse;
 
@@ -149,6 +156,46 @@ public class ServerProxy {
         return addFoodResponse;
     }
 
+    public AddRunResponse addRun(String foodID, AddRunRequest runRequest){
+        AddRunResponse runResponse = new AddRunResponse();
+
+        try {
+
+            URL url = new URL("http://" + serverHost + ":" + serverPort + "/food_item/" + foodID);
+            HttpURLConnection http = (HttpURLConnection)url.openConnection();
+
+            http.setRequestMethod("POST");
+            http.setDoOutput(true);
+            http.addRequestProperty("Accept", "application/json");
+
+            http.connect();
+
+            Gson gson = new Gson();
+            String reqData = gson.toJson(runRequest);
+            System.out.println(reqData);
+            OutputStream reqBody = http.getOutputStream();
+            writeString(reqData, reqBody);
+            reqBody.close();
+
+            if (http.getResponseCode() == HttpURLConnection.HTTP_OK) {
+
+                System.out.println("Got here");
+                InputStream respBody = http.getInputStream();
+                String respData = readString(respBody);
+                runResponse = gson.fromJson(respData, AddRunResponse.class);
+
+            }
+            else {
+                runResponse.setMessage(null);
+                System.out.println("null");
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return runResponse;
+    }
+
 
     public AddMealResponse addMeal(String mealID, AddMealRequest addMealRequest){
         AddMealResponse addMealResponse = new AddMealResponse();
@@ -263,6 +310,43 @@ public class ServerProxy {
         }
         return foodsResponse;
     }
+
+    public GetRunsHistoryResponse getRuns(String user_id) {
+        GetRunsHistoryResponse runsHistoryResponse = new GetRunsHistoryResponse();
+        try {
+            //TODO: unknown url
+            URL url = new URL("http://" + serverHost + ":" + serverPort + "/person");
+
+            HttpURLConnection http = (HttpURLConnection)url.openConnection();
+            http.setRequestMethod("GET");
+            http.setDoOutput(false);
+
+            Data data = Data.getData();
+            http.addRequestProperty("Accept", "application/json");
+            http.connect();
+
+            Gson gson = new Gson();
+            if (http.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream respBody = http.getInputStream();
+                String respData = readString(respBody);
+                runsHistoryResponse = gson.fromJson(respData, GetRunsHistoryResponse.class);
+                if(runsHistoryResponse.getMessage() != null){
+                    return runsHistoryResponse;
+                }
+                ArrayList<RunModel> runsHistory = gson.fromJson(respData, GetRunsHistoryResponse.class).getRunHistory();
+                data.setRunsHistory(runsHistory);
+                return runsHistoryResponse;
+            }
+            else {
+                runsHistoryResponse.setMessage(null);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return runsHistoryResponse;
+    }
+
 
     private String readString(InputStream is) throws IOException {
         StringBuilder sb = new StringBuilder();

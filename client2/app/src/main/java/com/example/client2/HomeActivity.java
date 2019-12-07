@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private String mealID;
     private TreeMap<String, List<FoodItemsModel>> foodsMaps = new TreeMap<>();
+    private Data data = Data.getData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +54,16 @@ public class HomeActivity extends AppCompatActivity {
         trackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RunsHistoryActivity.class);
-                startActivity(intent);
+                RunsAsyncTask runsAsyncTask = new RunsAsyncTask();
+                runsAsyncTask.execute();
+//                Intent intent = new Intent(getApplicationContext(), RunsHistoryActivity.class);
+//                startActivity(intent);
             }
         });
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MealsAsyncTask addMealAsyncTask = new MealsAsyncTask();
-
                 addMealAsyncTask.execute();
 //                Intent intent = new Intent(HomeActivity.this, Food_track_activity.class);
 //                startActivity(intent);
@@ -111,6 +113,27 @@ public class HomeActivity extends AppCompatActivity {
             ServerProxy serverProxy = new ServerProxy();
 
             serverProxy.getFoods(mealID);
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... toast){
+            Toast.makeText(HomeActivity.this, toast[0], Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPostExecute(Void voids){
+            foodsMaps.put(mealID, FoodItemsModel.getModel().getListFoods());
+        }
+    }
+
+    private class RunsAsyncTask extends AsyncTask<Void, String, Void> {
+        @Override
+        protected Void doInBackground(Void... voids){
+            publishProgress("Generating Runs History");
+
+            ServerProxy serverProxy = new ServerProxy();
+            serverProxy.getRuns(data.getUser_id());
             return null;
         }
 

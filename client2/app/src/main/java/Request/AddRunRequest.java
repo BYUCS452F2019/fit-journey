@@ -1,8 +1,8 @@
 package Request;
 
-public class RunRequest {
+public class AddRunRequest {
     private String run_id;
-    private int user_id;
+    private String user_id;
     private double distance;
     private String start_time;
     private String end_time;
@@ -11,7 +11,7 @@ public class RunRequest {
     private String route;
 
 
-    public RunRequest(String run_id, int user_id, double distance, String start_time, String end_time, double pace, int calories_burned, String route) {
+    public AddRunRequest(String run_id, String user_id, double distance, String start_time, String end_time, double pace, int calories_burned, String route) {
         this.run_id = run_id;
         this.user_id = user_id;
         this.distance = distance;
@@ -26,7 +26,7 @@ public class RunRequest {
     public String getRun_id() {
         return run_id;
     }
-    public int getUser_id() { return user_id; }
+    public String getUser_id() { return user_id; }
     public double getDistance() { return distance; }
     public String getStart_time() { return start_time; }
     public String getEnd_time() { return end_time; }
@@ -36,7 +36,7 @@ public class RunRequest {
 
     // Setters
     public void setRun_id(String run_id) { this.run_id = run_id; }
-    public void setUser_id(int user_id) { this.user_id = user_id; }
+    public void setUser_id(String user_id) { this.user_id = user_id; }
     public void setDistance(double distance) { this.distance = distance; }
     public void setStart_time(String start_time) { this.start_time = start_time; }
     public void setEnd_time(String end_time) { this.end_time = end_time; }

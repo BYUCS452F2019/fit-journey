@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Data {
 
     private static Data data;
-    private int user_id;
+    private String user_id;
     private String username;
     private String name;
     private String age;
@@ -24,6 +24,7 @@ public class Data {
 
             // TODO: Remove mock data and use actual data after finishing ServerProxy and Request/Response
             data.name = "Johne Doe";
+            data.user_id = "121nfowie";
             data.username = "johndoe";
             data.age = "23";
             data.height = "5ft 9in";
@@ -43,7 +44,7 @@ public class Data {
         return data;
     }
     public String getName() { return name; }
-    public int getUser_id() { return user_id; }
+    public String getUser_id() { return user_id; }
     public String getUsername() { return username; }
     public String getAge() { return age; }
     public String getHeight() { return height; }
@@ -56,7 +57,7 @@ public class Data {
 
     // Setters
     public static void setData(Data data) { Data.data = data; }
-    public void setUser_id(int user_id) { this.user_id = user_id; }
+    public void setUser_id(String user_id) { this.user_id = user_id; }
     public void setName(String name) { name = this.name; }
     public void setUsername(String username) { username = this.username; }
     public void setAge(String age) { this.age = age; }
